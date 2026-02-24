@@ -159,5 +159,7 @@ if predict:
 
     user_input_poly = poly.transform(user_input)
     prediction = L_model.predict(user_input_poly)
+    prediction = np.maximum(prediction, 0)
+
 
     st.success(f"🏡 Estimated House Price: ${prediction[0]:,.2f} USD")
